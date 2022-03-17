@@ -14,14 +14,25 @@ public class AfishaManager {
     }
 
     public void add(Afisha newItem) {
+
         Afisha[] tmp = new Afisha[items.length + 1];
+
         System.arraycopy(items, 0, tmp, 0, items.length);
 
         tmp[tmp.length - 1] = newItem;
+        if (tmp.length > defaultLength) {
+            return;
+        }
         this.items = tmp;
     }
 
     public Afisha[] findAll() {
+
+        if (items.length == 0) {
+            System.out.println("Список пуст");
+            return null;
+        }
+
         return items;
     }
 

@@ -40,4 +40,29 @@ class AfishaManagerTest {
         assertArrayEquals(expected, service.findLast());
 
     }
+
+    @Test
+    void shouldShowOnePositionArray() {
+        Afisha[] expected = {first};
+        service.add(first);
+        assertArrayEquals(expected, service.findAll());
+    }
+    @Test
+    void shouldCheckEmptyArray() {
+        assertArrayEquals(null, service.findAll());
+    }
+
+    @Test
+    void shouldCheckArrayWithUsersConstructor() {
+        AfishaManager service = new AfishaManager(3);
+        service.add(first);
+        service.add(second);
+        service.add(third);
+        service.add(fourth);
+
+        Afisha[] expected = {first, second, third};
+        assertArrayEquals(expected, service.findAll());
+
+
+    }
 }
